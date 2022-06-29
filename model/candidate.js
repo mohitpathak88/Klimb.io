@@ -4,45 +4,35 @@ const Schema = mongoose.Schema;
 //Creating a Schema:
 const candidateSchema = new Schema({
     Name: {
-      type: String,
-      //required: true
+      type: String
     },
     Email: {
       type: String,
-      //required: true
       unique: true
     },
     MobileNumber: {
-      type: String,
-      //required: true
+      type: String
     },
     DateOfBirth: {
-        type: String,
-        //required: true
+        type: String
       },
     Experience: {
-        type: String,
-        //required: true
+        type: String
     },
     Resume: {
-        type: String,
-        //required: true
+        type: String
     },
     Location: {
-        type: String,
-        //required: true
+        type: String
     },
     Address: {
-        type: String,
-        //required: true
+        type: String
     },
     Employer: {
-        type: String,
-        //required: true
+        type: String
     },
     Designation: {
-        type: String,
-        //required: true
+        type: String
     }
   }, { timestamps: true });
 

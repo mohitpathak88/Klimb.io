@@ -1,19 +1,6 @@
 const Candidate = require('../model/candidate');
-var multer = require('multer');
 const path = require('path');
 var XLSX = require('xlsx');
-
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, '../public/uploads')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname)
-    }
-  });
-  
-const upload = multer({ storage: storage });
 
 
 const home_get = (req,res)=>{
@@ -30,7 +17,7 @@ const home_get = (req,res)=>{
     });
 }
 
-const home_post = (upload.single('excel'),(req,res)=>{
+const home_post = (req,res)=>{
     var workbook =  XLSX.readFile(req.file.path);
     var sheet_namelist = workbook.SheetNames;
     var x=0;
@@ -45,8 +32,9 @@ const home_post = (upload.single('excel'),(req,res)=>{
         })
         x++;
     });
+    var g=5;
     res.redirect('/');
-  });
+  };
 
 module.exports = {
     home_get,
